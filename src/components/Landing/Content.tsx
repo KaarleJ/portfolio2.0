@@ -9,15 +9,10 @@ import Image from "next/image";
 import { HiMiniAcademicCap as Cap } from "react-icons/hi2";
 import Banner from "../Banner";
 import { Button } from "../ui/button";
+import { HomePayload } from "@/types";
 
 interface ContentProps {
-  data: {
-    assignment: string;
-    titlePreSpan?: string;
-    span?: string;
-    titlePostSpan?: string;
-    description?: string;
-  };
+  data: HomePayload;
 }
 
 export default function Content({ data }: ContentProps) {

@@ -1,14 +1,10 @@
-interface LandingProps {
-  data: {
-    assignment: string;
-    titlePreSpan?: string;
-    span?: string;
-    titlePostSpan?: string;
-    description?: string;
-    
-  };
-}
+
+import { HomePayload } from "@/types";
 import Content from "./Content";
+
+interface LandingProps {
+  data: HomePayload;
+}
 
 export default function Landing({ data }: LandingProps) {
   return (
