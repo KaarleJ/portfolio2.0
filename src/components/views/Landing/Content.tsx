@@ -7,8 +7,8 @@ import {
 } from "@/utils/animations";
 import Image from "next/image";
 import { HiMiniAcademicCap as Cap } from "react-icons/hi2";
-import Banner from "../Banner";
-import { Button } from "../ui/button";
+import Banner from "@/components/Banner";
+import { Button } from "@/components/ui/button";
 import { HomePayload } from "@/types";
 
 interface ContentProps {
@@ -16,13 +16,20 @@ interface ContentProps {
 }
 
 export default function Content({ data }: ContentProps) {
-  const { assignment, titlePreSpan, titlePostSpan, description, span } = data;
+  const {
+    assignment,
+    titlePreSpan,
+    titlePostSpan,
+    description,
+    span,
+    landingImage,
+  } = data;
   return (
     <motion.div
       id="landing"
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20]"
+      className="flex flex-row items-center justify-center px-20 mt-40 w-full z-20"
     >
       <div className="h-full w-full flex flex-col gap-5 justify-center text-start">
         <Banner
@@ -71,13 +78,15 @@ export default function Content({ data }: ContentProps) {
         variants={slideInFromRight(0.8)}
         className="w-full h-full flex justify-center items-center"
       >
-        <Image
-          src="/LandingPic.png"
-          alt="work icons"
-          height={850}
-          width={850}
-          className="opacity-50 hidden sm:flex"
-        />
+        {landingImage && (
+          <Image
+            src={landingImage}
+            alt="work icons"
+            height={850}
+            width={850}
+            className="opacity-50 hidden sm:flex"
+          />
+        )}
       </motion.div>
     </motion.div>
   );

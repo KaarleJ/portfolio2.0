@@ -1,16 +1,18 @@
 import { slideInFromLeft } from "@/utils/animations";
-import Card from "../Card";
+import Card from "../../Card";
 import SkillsList from "./SkillsList";
 import { SkillsPayload } from "@/types";
 
 interface SkillsProps {
-  data: SkillsPayload;
+  data: SkillsPayload | null;
 }
 
 export default function Skills({ data }: SkillsProps) {
+  if (!data) return <div>You have not added any skills yet.</div>;
+
   const { title, body, skills } = data;
   return (
-    <section className="my-[300px] col-start-1 col-end-5">
+    <section className="my-[300px] col-start-1 col-end-5 z-20">
       <Card
         variants={slideInFromLeft(0.3)}
         id="skills"

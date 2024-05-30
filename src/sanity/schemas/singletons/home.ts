@@ -10,14 +10,14 @@ export default defineType({
   // liveEdit: true,
   fields: [
     defineField({
-      name: "title",
+      name: "assignment",
       description: "This is your personal title",
       title: "Assignment",
       type: "string",
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "preSpanTitle",
+      name: "titlePreSpan",
       description: "This is your title before the span text",
       title: "Prespan Title",
       type: "string",
@@ -30,7 +30,7 @@ export default defineType({
       type: "string",
     }),
     defineField({
-      name: "postSpanTitle",
+      name: "titlePostSpan",
       description: "This is your title text after the span text",
       title: "Postspan title",
       type: "string",
@@ -54,11 +54,11 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: "title",
+      title: "span",
     },
     prepare({ title }) {
       return {
-        subtitle: "Home",
+        subtitle: "Landing view",
         title,
       };
     },

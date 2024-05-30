@@ -6,19 +6,23 @@ import { FaGithub as Github } from "react-icons/fa";
 import { ProjectsPayload } from "@/types";
 
 interface ProjectsProps {
-  data: ProjectsPayload;
+  data: ProjectsPayload | null;
 }
 
 export default function Projects({ data }: ProjectsProps) {
-  const { title, projects } = data;
+  if (!data) {
+    return <div>You have not added projects yet</div>;
+  }
+
+  const { projects } = data;
   return (
     <section
       id="projects"
-      className="my-[300px] col-start-1 col-end-8 w-full h-full"
+      className="my-[300px] col-start-1 col-end-8 w-full h-full z-20"
     >
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-24">
-          {title}
+          Featured projects
         </h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4">
           {projects &&

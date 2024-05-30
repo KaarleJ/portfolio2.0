@@ -1,54 +1,45 @@
-import { groq } from 'next-sanity'
+import { groq } from "next-sanity";
 
 export const homePageQuery = groq`
   *[_type == "home"][0]{
     _id,
-    overview,
-    showcaseProjects[]->{
-      _type,
-      coverImage,
-      overview,
-      "slug": slug.current,
-      tags,
-      title,
-    },
-    title,
-  }
-`
-
-export const pagesBySlugQuery = groq`
-  *[_type == "page" && slug.current == $slug][0] {
-    _id,
-    body,
-    overview,
-    title,
-    "slug": slug.current,
-  }
-`
-
-export const projectBySlugQuery = groq`
-  *[_type == "project" && slug.current == $slug][0] {
-    _id,
-    client,
-    coverImage,
+    assignment,
+    titlePreSpan,
+    span,
+    titlePostSpan,
     description,
-    duration,
-    overview,
-    site,
-    "slug": slug.current,
-    tags,
-    title,
+    "landingImage": landingImage.asset->url,
   }
-`
+`;
 
-export const settingsQuery = groq`
-  *[_type == "settings"][0]{
-    footer,
-    menuItems[]->{
-      _type,
-      "slug": slug.current,
-      title
-    },
-    ogImage,
+export const aboutPageQuery = groq`
+  *[_type == "about"][0]{
+    _id,
+    title,
+    body,
+    "image": image.asset->url,
   }
-`
+`;
+
+export const skillsQuery = groq`
+  *[_type == "skills"][0]{
+    _id,
+    title,
+    body,
+    skills,
+  }
+`;
+
+
+export const projectsQuery = groq`
+{
+  "projects": *[_type == "project"] {
+    _id,
+    title,
+    description,
+    "image": coverImage.asset->url,
+    link,
+    github,
+  }
+}
+`;

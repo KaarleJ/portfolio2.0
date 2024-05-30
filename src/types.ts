@@ -4,6 +4,7 @@ export interface HomePayload {
   span?: string;
   titlePostSpan?: string;
   description?: string;
+  landingImage?: string;
 }
 
 export interface AboutPayload {
@@ -15,18 +16,17 @@ export interface AboutPayload {
 export interface SkillsPayload {
   title?: string;
   body?: string;
-  skills?: {
-    name: string;
-  }[];
+  skills?: string[];
+}
+
+export interface Project {
+  title: string;
+  description: string;
+  image?: string;
+  link?: string;
+  github?: string;
 }
 
 export interface ProjectsPayload {
-  title?: string;
-  projects?: {
-    title: string;
-    description: string;
-    image?: string;
-    link?: string;
-    github?: string;
-  }[];
+  projects?: Project[];
 }

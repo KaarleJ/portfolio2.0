@@ -1,7 +1,7 @@
-import Landing from "@/components/Landing";
-import Skills from "@/components/Skills";
-import About from "@/components/about";
-import Projects from "@/components/projects";
+import Landing from "@/components/views/Landing/Landing";
+import Skills from "@/components/views/Skills";
+import About from "@/components/views/about";
+import Projects from "@/components/views/Projects";
 import {
   AboutPayload,
   HomePayload,
@@ -9,14 +9,20 @@ import {
   SkillsPayload,
 } from "@/types";
 
-const landingData: HomePayload = {
-  assignment: "IT student",
-  titlePreSpan: "Hi, I'm",
-  span: "Kaarle!",
-  titlePostSpan: "... an IT student with a focus on fullstack",
-  description:
-    "Welcome to my portfolio where I showcase my projects and skills.",
-};
+import { draftMode } from "next/headers";
+import {
+  loadAboutPage,
+  loadHomePage,
+  loadProjects,
+  loadSkills,
+} from "@/sanity/loader/loadQuery";
+import dynamic from "next/dynamic";
+import ProjectsPreview from "@/components/previews/ProjectsPreview";
+import SkillsPreview from "@/components/previews/SkillsPreview";
+import AboutPreview from "@/components/previews/AboutPreview";
+const LandingPreview = dynamic(
+  () => import("@/components/previews/LandingPreview")
+);
 
 const aboutData: AboutPayload = {
   title: "So who am I?",
@@ -24,68 +30,41 @@ const aboutData: AboutPayload = {
   image: "/kaarle.png",
 };
 
-const skillsData: SkillsPayload = {
-  title: "Skills",
-  body: "I have experience with the following technologies",
-  skills: [
-    { name: "React" },
-    { name: "Next.js" },
-    { name: "TailwindCSS" },
-    { name: "Node.js" },
-    { name: "Express" },
-    { name: "MongoDB" },
-    { name: "PostgreSQL" },
-    { name: "Docker" },
-    { name: "Kubernetes" },
-    { name: "AWS" },
-    { name: "GCP" },
-    { name: "Azure" },
-  ],
-};
-
-const projectsData: ProjectsPayload = {
-  title: "Projects",
-  projects: [
-    {
-      title: "Project 1",
-      description: "This is a project description",
-      image: "https://www.prokoulu.fi/wp-content/uploads/2023/06/placeholder.png",
-      link: "https://www.google.com",
-      github: "https://github.com",
-    },
-    {
-      title: "Project 2",
-      description: "This is a project description",
-      image: "https://www.prokoulu.fi/wp-content/uploads/2023/06/placeholder.png",
-      link: "https://www.google.com",
-      github: "https://github.com",
-    },
-    {
-      title: "Project 3",
-      description: "This is a project description",
-      image: "https://www.prokoulu.fi/wp-content/uploads/2023/06/placeholder.png",
-      link: "https://www.google.com",
-      github: "https://github.com",
-    },
-  ],
-};
-
 export default async function Home() {
+  const landing = await loadHomePage();
+  const projects = await loadProjects();
+  const skills = await loadSkills();
+  const about = await loadAboutPage();
   /*
   const landingData = await fethLanding();
   const aboutData = await fetchAbout();
   const skillsData = await fetchSkills();
   const projectsData = await fetchProjects();
   */
+
   return (
     <main className="h-full w-full py-24 px-4 sm:px-24">
       <div className="flex flex-col">
-        <Landing data={landingData} />
+        {draftMode().isEnabled ? (
+          <LandingPreview initial={landing} />
+        ) : (
+          <Landing initial={landing.data} />
+        )}
       </div>
       <div className="grid-cols-7 grid">
-        <About data={aboutData} />
-        <Skills data={skillsData} />
-        <Projects data={projectsData} />
+        {draftMode().isEnabled ? (
+          <>
+            <AboutPreview initial={about} />
+            <SkillsPreview initial={skills} />
+            <ProjectsPreview initial={projects} />
+          </>
+        ) : (
+          <>
+            <About data={about.data} />
+            <Skills data={skills.data} />
+            <Projects data={projects.data} />
+          </>
+        )}
       </div>
     </main>
   );

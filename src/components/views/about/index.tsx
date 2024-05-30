@@ -1,16 +1,18 @@
 import Image from "next/image";
-import Card from "../Card";
+import Card from "@/components/Card";
 import { slideInFromRight } from "@/utils/animations";
 import { AboutPayload } from "@/types";
 
 interface AboutProps {
-  data: AboutPayload;
+  data: AboutPayload | null;
 }
 
 export default function About({ data }: AboutProps) {
+  if (!data) return <div>You have not added about content</div>;
+
   const { title, body, image } = data;
   return (
-    <section className="my-[300px] col-start-3 col-end-7">
+    <section className="my-[300px] col-start-3 col-end-7 z-20">
       <Card
         variants={slideInFromRight(0.3)}
         id="about-me"
