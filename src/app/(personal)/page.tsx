@@ -2,45 +2,35 @@ import Landing from "@/components/views/Landing/Landing";
 import Skills from "@/components/views/Skills";
 import About from "@/components/views/about";
 import Projects from "@/components/views/Projects";
-import {
-  AboutPayload,
-  HomePayload,
-  ProjectsPayload,
-  SkillsPayload,
-} from "@/types";
 
 import { draftMode } from "next/headers";
+import dynamic from "next/dynamic";
+
 import {
   loadAboutPage,
   loadHomePage,
   loadProjects,
   loadSkills,
 } from "@/sanity/loader/loadQuery";
-import dynamic from "next/dynamic";
-import ProjectsPreview from "@/components/previews/ProjectsPreview";
-import SkillsPreview from "@/components/previews/SkillsPreview";
-import AboutPreview from "@/components/previews/AboutPreview";
+
+const SkillsPreview = dynamic(
+  () => import("@/components/previews/SkillsPreview")
+);
+const ProjectsPreview = dynamic(
+  () => import("@/components/previews/ProjectsPreview")
+);
+const AboutPreview = dynamic(
+  () => import("@/components/previews/AboutPreview")
+);
 const LandingPreview = dynamic(
   () => import("@/components/previews/LandingPreview")
 );
-
-const aboutData: AboutPayload = {
-  title: "So who am I?",
-  body: "I'm a 22 year old finnish IT student from Finland. ",
-  image: "/kaarle.png",
-};
 
 export default async function Home() {
   const landing = await loadHomePage();
   const projects = await loadProjects();
   const skills = await loadSkills();
   const about = await loadAboutPage();
-  /*
-  const landingData = await fethLanding();
-  const aboutData = await fetchAbout();
-  const skillsData = await fetchSkills();
-  const projectsData = await fetchProjects();
-  */
 
   return (
     <main className="h-full w-full py-24 px-4 sm:px-24">

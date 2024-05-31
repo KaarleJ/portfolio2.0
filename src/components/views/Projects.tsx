@@ -19,7 +19,7 @@ export default function Projects({ data }: ProjectsProps) {
   return (
     <section
       id="projects"
-      className="my-[300px] col-start-1 col-end-8 w-full h-full z-20"
+      className="my-[300px] col-start-1 col-end-8 w-full z-20"
     >
       <div className="flex flex-col items-center justify-center">
         <MotionText variants={slideInFromRight(0.5)} className="text-6xl font-semibold text-transparent text-center bg-clip-text bg-gradient-to-r from-primary to-secondary py-24">
