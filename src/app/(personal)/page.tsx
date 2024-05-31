@@ -51,7 +51,7 @@ export default async function Home() {
           <Landing initial={landing.data} />
         )}
       </div>
-      <div className="grid-cols-7 grid">
+      <div className="md:grid md:grid-cols-7">
         {draftMode().isEnabled ? (
           <>
             <AboutPreview initial={about} />

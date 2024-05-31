@@ -27,7 +27,7 @@ export default function Landing({ initial }: LandingProps) {
           autoPlay
           muted
           loop
-          className=" absolute rotate-180 top-[-400px]  h-full w-full left-0 z-[1] object-cover "
+          className=" absolute rotate-180 top-[-400px]  h-full w-full left-0 z-0 object-cover "
         >
           <source src="/blackhole.webm" type="video/webm" />
         </video>

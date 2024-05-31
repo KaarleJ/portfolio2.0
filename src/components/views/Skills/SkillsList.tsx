@@ -4,7 +4,7 @@ import { slideInFromLeft } from "@/utils/animations";
 
 export default function SkillsList({ skills }: { skills?: string[] }) {
   return (
-    <ul className="flex flex-wrap justify-center w-2/3 self-center m-12 text-xl">
+    <ul className="flex flex-wrap justify-center sm:w-2/3 my-6 sm:my-12 text-xl">
       {skills &&
         skills.map((skill, index) => (
           <motion.li

@@ -7,8 +7,8 @@ import dynamic from "next/dynamic";
 import { draftMode } from "next/headers";
 
 import StarsCanvas from "@/components/StarCanvas";
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
+import NavBar from "@/components/ui/NavBar";
+import Footer from "@/components/ui/Footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],

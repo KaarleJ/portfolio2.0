@@ -1,5 +1,5 @@
 import { slideInFromLeft } from "@/utils/animations";
-import Card from "../../Card";
+import Card from "../../ui/Card";
 import SkillsList from "./SkillsList";
 import { SkillsPayload } from "@/types";
 
@@ -16,10 +16,10 @@ export default function Skills({ data }: SkillsProps) {
       <Card
         variants={slideInFromLeft(0.3)}
         id="skills"
-        className="flex flex-col items-start justify-start h-full overflow-hidden"
+        className="flex flex-col items-center justify-center h-full overflow-hidden"
       >
-        <h1 className="text-4xl font-medium my-12">{title}</h1>
-        <p className="text-lg">{body}</p>
+        <h1 className="text-4xl font-medium my-6 sm:my-12">{title}</h1>
+        <p className="text-lg text-center">{body}</p>
         <SkillsList skills={skills} />
       </Card>
     </section>
