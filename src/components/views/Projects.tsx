@@ -1,4 +1,4 @@
-import { slideInFromLeft, slideInFromRight } from "@/utils/animations";
+import { slideInFromRight } from "@/utils/animations";
 import Card from "../ui/Card";
 import Image from "next/image";
 import Banner from "../ui/Banner";
@@ -22,7 +22,7 @@ export default function Projects({ data }: ProjectsProps) {
       className="my-[300px] col-start-1 col-end-8 w-full h-full z-20"
     >
       <div className="flex flex-col items-center justify-center">
-        <MotionText variants={slideInFromLeft(0.5)} className="text-6xl font-semibold text-transparent text-center bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-24">
+        <MotionText variants={slideInFromRight(0.5)} className="text-6xl font-semibold text-transparent text-center bg-clip-text bg-gradient-to-r from-primary to-secondary py-24">
           Featured projects
         </MotionText>
         <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-x-4 gap-y-8">
@@ -42,7 +42,7 @@ export default function Projects({ data }: ProjectsProps) {
                       alt=""
                       width={200}
                       height={200}
-                      className="object-cover w-full h-48 my-2 rounded-md shadow-md shadow-purple-600"
+                      className="object-cover w-full h-48 my-2 rounded-md shadow-md shadow-primary"
                     />
                   )}
 
@@ -51,14 +51,14 @@ export default function Projects({ data }: ProjectsProps) {
                   <div className="flex flex-row py-2 items-center">
                     <a
                       href={link}
-                      className="text-purple-600 hover:text-cyan-600 z-50"
+                      className="text-primary hover:brightness-125 z-50"
                     >
                       <Banner>Live deployment</Banner>
                     </a>
 
                     <a
                       href={github}
-                      className="text-primary hover:text-cyan-600 z-50 mx-6"
+                      className="text-primary hover:text-secondary z-50 mx-6"
                     >
                       <Github size={36} />
                     </a>

@@ -8,7 +8,6 @@ import {
 import Image from "next/image";
 import { HiMiniAcademicCap as Cap } from "react-icons/hi2";
 import Banner from "@/components/ui/Banner";
-import { Button } from "@/components/ui/button";
 import { HomePayload } from "@/types";
 
 interface ContentProps {
@@ -36,7 +35,7 @@ export default function Content({ data }: ContentProps) {
           variants={slideInFromTop}
           className="flex flex-row items-center gap-2"
         >
-          <Cap size={36} className="text-primary" />
+          <Cap size={36} className="text-secondary" />
           <h1 className="text-lg">{assignment}</h1>
         </Banner>
 
@@ -46,7 +45,7 @@ export default function Content({ data }: ContentProps) {
         >
           <span>
             {titlePreSpan}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
               {" "}
               {span}
               <br />
@@ -65,12 +64,11 @@ export default function Content({ data }: ContentProps) {
           variants={slideInFromLeft(1)}
           className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
         >
-          <Button
-            variant="outline"
-            className="flex bg-gradient-to-t from-purple-800 via-indigo-950 to-indigo-950 text-lg font-normal"
+          <Banner
+            className="flex bg-gradient-to-t from-primary via-indigo-950 to-indigo-950 text-lg font-normal text-white"
           >
-            Learn More!
-          </Button>
+            More below!
+          </Banner>
         </motion.div>
       </div>
 

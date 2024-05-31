@@ -24,7 +24,7 @@ export default function About({ data }: AboutProps) {
             alt=""
             width={200}
             height={100}
-            className="h-auto w-auto object-contain shadow-xl shadow-purple-600 mx-6"
+            className="h-auto w-auto object-contain shadow-xl shadow-primary mx-6"
           />
         )}
         <h1 className="text-4xl font-medium my-12">{title}</h1>

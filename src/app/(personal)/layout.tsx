@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "bg-[#030014] font-sans antialiased overflow-x-hidden overflow-y-auto",
+          "bg-background font-sans antialiased overflow-x-hidden overflow-y-auto",
           fontSans.variable
         )}
       >

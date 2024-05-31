@@ -2,7 +2,7 @@ import Socials from "./Socials";
 
 export default function Footer() {
   return (
-    <footer className="w-full h-max border shadow-inner shadow-purple-900 p-12 z-50">
+    <footer className="w-full h-max border shadow-inner shadow-primary p-12 z-50">
       <div className="flex flex-col justify-center items-center">
         <h2 className="py-4 text-2xl">Contact</h2>
         <p className="p-4 text-center">
