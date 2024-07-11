@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -19,19 +18,14 @@ const LiveVisualEditing = dynamic(
   () => import("@/sanity/loader/LiveVisualEditing")
 );
 
-export const metadata: Metadata = {
-  title: "KaarleJ - portfolio",
-  description: "Kaarle's personal portfolio showcasing his projects and skills",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
+    <>
+      <div
         className={cn(
           "bg-background font-sans antialiased overflow-x-hidden overflow-y-auto",
           fontSans.variable
@@ -41,8 +35,8 @@ export default function RootLayout({
         <NavBar />
         {children}
         <Footer />
-      </body>
+      </div>
       {draftMode().isEnabled && <LiveVisualEditing />}
-    </html>
+    </>
   );
 }
