@@ -12,25 +12,6 @@ export const homePageQuery = groq`
   }
 `;
 
-export const aboutPageQuery = groq`
-  *[_type == "about"][0]{
-    _id,
-    title,
-    body,
-    "image": image.asset->url,
-  }
-`;
-
-export const skillsQuery = groq`
-  *[_type == "skills"][0]{
-    _id,
-    title,
-    body,
-    skills,
-  }
-`;
-
-
 export const projectsQuery = groq`
 {
   "projects": *[_type == "project"] {
@@ -42,4 +23,26 @@ export const projectsQuery = groq`
     github,
   }
 }
+`;
+
+export const cardsQuery = groq`
+{
+  "cards": *[_type == "card"] {
+    _id,
+    content,
+    "slug": slug.current,
+    title,
+  }
+}
+`;
+
+export const settingsQuery = groq`
+  *[_type == "settings"][0]{
+    menuItems[]->{
+      _type,
+      "slug": slug.current,
+      title
+    },
+    "logo": logo.asset->url,
+  }
 `;

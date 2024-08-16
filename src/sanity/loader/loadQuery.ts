@@ -5,17 +5,17 @@ import { draftMode } from "next/headers";
 
 import { client } from "@/sanity/lib/client";
 import {
-  aboutPageQuery,
   homePageQuery,
   projectsQuery,
-  skillsQuery,
+  cardsQuery,
+  settingsQuery,
 } from "@/sanity/lib/queries";
 import { token } from "@/sanity/lib/token";
 import {
   HomePayload,
-  AboutPayload,
-  SkillsPayload,
   ProjectsPayload,
+  CardsPayload,
+  SettingsPayload,
 } from "../../types";
 
 const serverClient = client.withConfig({
@@ -70,18 +70,18 @@ export function loadHomePage() {
   );
 }
 
-export function loadAboutPage() {
-  return loadQuery<AboutPayload | null>(
-    aboutPageQuery,
-    {},
-    { next: { tags: ["about"] } }
-  );
-}
-
-export function loadSkills() {
-  return loadQuery<SkillsPayload | null>(skillsQuery);
-}
-
 export function loadProjects() {
   return loadQuery<ProjectsPayload | null>(projectsQuery);
+}
+
+export function loadCards() {
+  return loadQuery<CardsPayload | null>(cardsQuery);
+}
+
+export function loadSettings(lang: string = "en") {
+  return loadQuery<SettingsPayload>(
+    settingsQuery,
+    { lang },
+    { next: { tags: ["settings"] } }
+  );
 }

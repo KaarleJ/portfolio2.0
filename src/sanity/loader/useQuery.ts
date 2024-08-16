@@ -1,9 +1,11 @@
+import { SettingsPayload } from '@/types'
 import {
   type QueryParams,
   type QueryResponseInitial,
   type UseQueryOptionsDefinedInitial,
 } from '@sanity/react-loader'
 import * as queryStore from '@sanity/react-loader'
+import { settingsQuery } from '../lib/queries'
 
 
 /**
@@ -29,4 +31,11 @@ export const useQuery = <
   }
 
   return snapshot
+}
+
+export function useSettings(
+  initial: QueryResponseInitial<SettingsPayload>,
+  lang: string = "en"
+) {
+  return useQuery<SettingsPayload>(settingsQuery, { lang }, { initial });
 }
