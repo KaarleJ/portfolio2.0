@@ -76,7 +76,7 @@ export default function CustomPortableTextBlock({
             <ImageBox
               image={value}
               alt={value.alt}
-              classesWrapper="relative aspect-[16/9] shadow-xl shadow-primary my-4 w-5/6"
+              classesWrapper="relative aspect-[16/9] shadow-xl shadow-primary my-4 w-3/4"
             />
           </div>
         );
