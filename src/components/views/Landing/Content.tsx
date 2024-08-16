@@ -28,7 +28,7 @@ export default function Content({ data }: ContentProps) {
       id="landing"
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center px-5 sm:px-20 mt-40 w-full z-0"
+      className="flex flex-row items-center justify-center px-5 sm:px-20 mt-40 w-full z-20"
     >
       <div className="h-full w-full flex flex-col gap-5 justify-center text-start sm:text-start">
         <Banner

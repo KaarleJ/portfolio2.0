@@ -8,7 +8,6 @@ interface LandingProps {
 }
 
 export default function Landing({ initial }: LandingProps) {
-
   if (!initial) {
     return (
       <div className="text-center">
@@ -22,16 +21,16 @@ export default function Landing({ initial }: LandingProps) {
   }
 
   return (
-    <div className="flex flex-col h-full w-full">
-        <video
-          autoPlay
-          muted
-          loop
-          className=" absolute rotate-180 top-[-400px]  h-full w-full left-0 z-0 object-cover "
-        >
-          <source src="/blackhole.webm" type="video/webm" />
-        </video>
-        <Content data={initial} />
-      </div>
+    <div className="flex flex-col h-full w-full" id="landing">
+      <video
+        autoPlay
+        muted
+        loop
+        className=" absolute rotate-180 top-[-400px]  h-full w-full left-0 z-0 object-cover "
+      >
+        <source src="/blackhole.webm" type="video/webm" />
+      </video>
+      <Content data={initial} />
+    </div>
   );
 }

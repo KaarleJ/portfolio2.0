@@ -13,8 +13,9 @@ import { apiVersion, dataset, projectId, studioUrl } from "@/sanity/lib/api";
 import { pageStructure, singletonPlugin } from "@/sanity/plugins/settings";
 import project from "@/sanity/schemas/documents/project";
 import home from "@/sanity/schemas/singletons/home";
-import about from "@/sanity/schemas/singletons/about";
-import skills from "@/sanity/schemas/singletons/skills";
+import card from "@/sanity/schemas/documents/card";
+import settings from "@/sanity/schemas/singletons/settings";
+
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -30,15 +31,15 @@ export default defineConfig({
     types: [
       // Singletons
       home,
-      about,
-      skills,
+      settings,
       // Documents
       project,
+      card,
     ],
   },
   plugins: [
     structureTool({
-      structure: pageStructure([home, about, skills]),
+      structure: pageStructure([home, settings]),
     }),
     presentationTool({
       previewUrl: {
@@ -47,7 +48,7 @@ export default defineConfig({
         },
       },
     }),
-    singletonPlugin([home.name, about.name, skills.name]),
+    singletonPlugin([home.name, settings.name]),
     unsplashImageAsset(),
     visionTool({ defaultApiVersion: apiVersion }),
   ],
