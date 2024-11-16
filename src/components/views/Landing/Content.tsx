@@ -41,11 +41,11 @@ export default function Content({ data }: ContentProps) {
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col mt-6 text-4xl sm:text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
+          className="flex flex-col mt-6 text-4xl sm:text-6xl font-bold text-white max-w-[600px] w-full h-auto"
         >
           <span>
             {titlePreSpan}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary w-full">
               {" "}
               {span}
               <br />
@@ -64,9 +64,7 @@ export default function Content({ data }: ContentProps) {
           variants={slideInFromLeft(1)}
           className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
         >
-          <Banner
-            className="flex bg-gradient-to-t from-primary via-indigo-950 to-indigo-950 text-lg font-normal text-white"
-          >
+          <Banner className="flex bg-gradient-to-t from-primary via-indigo-950 to-indigo-950 text-lg font-normal text-white">
             More below!
           </Banner>
         </motion.div>
