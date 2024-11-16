@@ -53,7 +53,7 @@ export default function Projects({ data }: ProjectsProps) {
                       href={link}
                       className="text-primary hover:brightness-125 z-50"
                     >
-                      <Banner>Live deployment</Banner>
+                      <Banner className="text-white">Live deployment</Banner>
                     </a>
 
                     <a
