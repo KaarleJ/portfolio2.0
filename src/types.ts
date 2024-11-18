@@ -15,6 +15,7 @@ export interface Project {
   image?: string;
   link?: string;
   github?: string;
+  finishDate: string;
 }
 
 export interface ProjectsPayload {

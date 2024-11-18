@@ -21,6 +21,7 @@ export const projectsQuery = groq`
     "image": coverImage.asset->url,
     link,
     github,
+    finishDate,
   }
 }
 `;

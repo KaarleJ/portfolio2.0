@@ -44,5 +44,12 @@ export default defineType({
       title: "Github",
       type: "url",
     }),
+    defineField({
+      name: "finishDate",
+      description: "This is the date the project was finished.",
+      title: "Finish Date",
+      type: "date",
+      validation: (rule) => rule.required(),
+    }),
   ],
 });
