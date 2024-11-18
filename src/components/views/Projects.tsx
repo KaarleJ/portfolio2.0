@@ -15,14 +15,21 @@ export default function Projects({ data }: ProjectsProps) {
     return <div>You have not added projects yet</div>;
   }
 
-  const { projects } = data;
+  // sort projects by finish date
+  const projects = data.projects?.sort((a, b) => {
+    return new Date(b.finishDate).getTime() - new Date(a.finishDate).getTime();
+  });
+  console.log(projects);
   return (
     <section
       id="projects"
       className="my-[300px] col-start-1 col-end-8 w-full z-20"
     >
       <div className="flex flex-col items-center justify-center">
-        <MotionText variants={slideInFromRight(0.5)} className="text-6xl font-semibold text-transparent text-center bg-clip-text bg-gradient-to-r from-primary to-secondary py-24">
+        <MotionText
+          variants={slideInFromRight(0.5)}
+          className="text-6xl font-semibold text-transparent text-center bg-clip-text bg-gradient-to-r from-primary to-secondary py-24"
+        >
           Featured projects
         </MotionText>
         <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-x-4 gap-y-8">
