@@ -15,11 +15,9 @@ export default function Projects({ data }: ProjectsProps) {
     return <div>You have not added projects yet</div>;
   }
 
-  // sort projects by finish date
   const projects = data.projects?.sort((a, b) => {
     return new Date(b.finishDate).getTime() - new Date(a.finishDate).getTime();
   });
-  console.log(projects);
   return (
     <section
       id="projects"
