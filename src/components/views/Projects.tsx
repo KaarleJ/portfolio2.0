@@ -30,7 +30,7 @@ export default function Projects({ data }: ProjectsProps) {
         >
           Featured projects
         </MotionText>
-        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-x-4 gap-y-8">
+        <div className="flex flex-row flex-wrap gap-x-4 gap-y-8 justify-center">
           {projects &&
             projects.map(
               ({ title, image, description, link, github }, index) => (
@@ -39,7 +39,7 @@ export default function Projects({ data }: ProjectsProps) {
                   whileInView="visible"
                   variants={slideInFromRight(0.3 + 0.1 * index)}
                   key={index}
-                  className="flex flex-col justify-between"
+                  className="flex flex-col justify-between max-w-lg"
                 >
                   {image && (
                     <Image
