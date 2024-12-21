@@ -8,10 +8,10 @@ interface SocialsProps {
 export default function Socials({ className }: SocialsProps) {
   return (
     <div className={`${className}`}>
-      <a href="https://www.github.com" className="hover:text-secondary">
+      <a href="https://www.github.com/kaarlej" className="hover:text-secondary">
         <Github size={36} />
       </a>
-      <a href="https://www.linkedin.com" className="hover:text-secondary">
+      <a href="https://www.linkedin.com/in/kaarlej/" className="hover:text-secondary">
         <Linkedin size={36} />
       </a>
     </div>
